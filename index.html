@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Aura — Vitrine digital premium para marcas locais">
-<meta property="og:description" content="Modelo demonstrativo completo: carrinho, checkout por WhatsApp, PIX, frete, busca e mais. Ajustável ao seu negócio.">
+<meta property="og:description" content="Modelo demonstrativo completo: carrinho, checkout por WhatsApp, PIX, frete, busca e mais.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=80">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -23,7 +23,7 @@
 
 <style>
 /* =========================================================
-   AURA — DESIGN SYSTEM (v2 premium)
+   AURA — DESIGN SYSTEM
    ========================================================= */
 :root{
   --cor-fundo:#FAF8F5;
@@ -58,7 +58,6 @@
   --grain-opacity:.035;
 }
 
-/* ---- Modo escuro ---- */
 [data-theme="dark"]{
   --cor-fundo:#151210;
   --cor-fundo-alt:#1C1917;
@@ -96,7 +95,6 @@ body{
   font-feature-settings:"kern" 1, "liga" 1, "calt" 1;
 }
 
-/* Grain texture global */
 body::before{
   content:"";
   position:fixed;
@@ -175,7 +173,6 @@ small{ font-size:.875rem; line-height:1.6; }
   font-size:1.0625rem;
 }
 
-/* Badge de "ajustável" — sinaliza personalização */
 .badge-ajustavel{
   display:inline-flex;
   align-items:center;
@@ -211,30 +208,14 @@ small{ font-size:.875rem; line-height:1.6; }
   transition:var(--transicao);
 }
 
-.btn--primary{
-  background:var(--cor-primaria);
-  color:#fff;
-}
+.btn--primary{ background:var(--cor-primaria); color:#fff; }
 .btn--primary:hover{ background:var(--cor-hover); transform:translateY(-2px); box-shadow:var(--sombra-hover); }
 
-.btn--fantasma{
-  background:transparent;
-  color:currentColor;
-  border-color:currentColor;
-}
+.btn--fantasma{ background:transparent; color:currentColor; border-color:currentColor; }
 .btn--fantasma:hover{ background:rgba(255,255,255,.12); transform:translateY(-2px); }
 
-.btn--escuro{
-  background:var(--cor-preto);
-  color:#fff;
-}
+.btn--escuro{ background:var(--cor-preto); color:#fff; }
 .btn--escuro:hover{ background:var(--cor-primaria); transform:translateY(-2px); box-shadow:var(--sombra-hover); }
-
-.btn--dourado{
-  background:var(--cor-destaque);
-  color:var(--cor-preto);
-}
-.btn--dourado:hover{ background:#B48F1F; transform:translateY(-2px); box-shadow:var(--sombra-hover); }
 
 .btn--bloco{ width:100%; }
 .btn:disabled{ opacity:.45; cursor:not-allowed; transform:none !important; }
@@ -269,27 +250,8 @@ small{ font-size:.875rem; line-height:1.6; }
   white-space:nowrap; border:0;
 }
 
-/* Skeleton loading */
-.skeleton{
-  position:relative;
-  overflow:hidden;
-  background:var(--cor-borda);
-}
-.skeleton::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
-  animation:skeleton-shine 1.6s ease-in-out infinite;
-}
-@keyframes skeleton-shine{
-  0%{ transform:translateX(-100%); }
-  100%{ transform:translateX(100%); }
-}
-.skeleton--loaded::after{ display:none; }
-
 /* =========================================================
-   TOGGLE APRESENTAÇÃO (flutuante)
+   TOGGLE APRESENTAÇÃO + DARK MODE
    ========================================================= */
 .toggle-apres{
   position:fixed;
@@ -317,16 +279,10 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .toggle-apres svg{ width:16px; height:16px; }
 @media (max-width:640px){
-  .toggle-apres{
-    top:auto;
-    bottom:1.25rem;
-    right:1.25rem;
-    padding:.875rem 1rem;
-  }
+  .toggle-apres{ top:auto; bottom:1.25rem; right:1.25rem; padding:.875rem 1rem; }
   .toggle-apres span{ display:none; }
 }
 
-/* Toggle dark mode */
 .toggle-tema{
   position:fixed;
   top:1.25rem;
@@ -347,7 +303,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .toggle-tema:hover{ transform:rotate(15deg) scale(1.05); color:var(--cor-primaria); }
 
 /* =========================================================
-   APRESENTAÇÃO — landing de vendas
+   APRESENTAÇÃO
    ========================================================= */
 .apres{
   position:fixed;
@@ -445,11 +401,7 @@ small{ font-size:.875rem; line-height:1.6; }
   margin:0 auto 1.5rem;
   text-wrap:balance;
 }
-.apres__titulo em{
-  font-style:italic;
-  color:var(--cor-primaria);
-  font-weight:500;
-}
+.apres__titulo em{ font-style:italic; color:var(--cor-primaria); font-weight:500; }
 
 .apres__subtitulo{
   font-size:clamp(1.0625rem, 1.6vw, 1.25rem);
@@ -484,14 +436,10 @@ small{ font-size:.875rem; line-height:1.6; }
   gap:.6rem;
   font-size:.8125rem;
   color:var(--cor-texto-suave);
-  font-weight:400;
 }
 .apres__mini svg{ width:16px; height:16px; color:var(--cor-primaria); flex-shrink:0; }
 
-/* Seção "o que é ajustável" */
-.apres__secao{
-  padding-block:clamp(3rem, 7vw, 5rem);
-}
+.apres__secao{ padding-block:clamp(3rem, 7vw, 5rem); }
 .apres__secao-titulo{
   text-align:center;
   font-size:clamp(1.75rem, 3vw, 2.25rem);
@@ -549,118 +497,37 @@ small{ font-size:.875rem; line-height:1.6; }
   line-height:1.5;
 }
 
-/* Planos */
-.planos{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1.5rem;
-  max-width:72rem;
-  margin-inline:auto;
-}
-
-@media (min-width:768px){
-  .planos{ grid-template-columns:repeat(3, 1fr); align-items:stretch; }
-}
-
-.plano{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  padding:2rem 1.75rem;
-  background:var(--cor-fundo-alt);
-  border:1px solid var(--cor-borda);
-  border-radius:1rem;
-  transition:var(--transicao);
-}
-.plano:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--sombra-hover);
-}
-
-.plano--destaque{
-  border:2px solid var(--cor-primaria);
-  box-shadow:0 20px 50px -20px rgba(183,110,121,.3);
-}
-.plano--destaque::before{
-  content:"MAIS ESCOLHIDO";
-  position:absolute;
-  top:-12px; left:50%;
-  transform:translateX(-50%);
-  background:var(--cor-primaria);
-  color:#fff;
-  font-size:.625rem;
-  font-weight:600;
-  letter-spacing:.16em;
-  padding:.4rem .875rem;
-  border-radius:var(--raio-pill);
-}
-
-.plano__nome{
-  font-family:var(--fonte-titulo);
-  font-size:1.375rem;
-  font-weight:600;
-  margin-bottom:.35rem;
-}
-
-.plano__para{
-  font-size:.8125rem;
-  color:var(--cor-texto-suave);
-  margin-bottom:1.5rem;
-  min-height:2.6rem;
-}
-
-.plano__preco{
-  display:flex;
-  align-items:baseline;
-  gap:.4rem;
-  padding-bottom:1.5rem;
-  margin-bottom:1.5rem;
-  border-bottom:1px solid var(--cor-borda);
-}
-.plano__preco small{
-  font-size:.75rem;
-  color:var(--cor-texto-suave);
-  font-weight:400;
-}
-.plano__preco strong{
-  font-family:var(--fonte-titulo);
-  font-size:2rem;
-  font-weight:600;
-  color:var(--cor-texto);
-  letter-spacing:-.02em;
-}
-
-.plano__lista{
-  display:flex;
-  flex-direction:column;
-  gap:.75rem;
-  margin-bottom:2rem;
-  flex:1;
-}
-.plano__lista li{
-  display:flex;
-  align-items:flex-start;
-  gap:.6rem;
-  font-size:.875rem;
-  line-height:1.5;
-}
-.plano__lista svg{
-  width:16px; height:16px;
-  flex-shrink:0;
-  margin-top:.2rem;
-  color:var(--cor-primaria);
-}
-.plano__lista li.fora{ opacity:.4; }
-.plano__lista li.fora svg{ color:var(--cor-texto-suave); }
-
 /* =========================================================
-   1. HEADER
+   1. HEADER — corrigido: gradiente visível no topo
    ========================================================= */
 .header{
   position:fixed;
   top:0; left:0; right:0;
   z-index:100;
   transition:background .4s ease, box-shadow .4s ease, color .4s ease, backdrop-filter .4s ease;
+}
+
+/* Header no topo — gradiente escuro garante legibilidade */
+.header--topo{
+  color:#fff;
+  background:linear-gradient(
+    to bottom,
+    rgba(13,13,13,.55) 0%,
+    rgba(13,13,13,.25) 60%,
+    rgba(13,13,13,0) 100%
+  );
+}
+
+/* Header após rolar — fundo sólido com blur */
+.header--rolado{
+  background:rgba(255,255,255,.92);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  color:var(--cor-texto);
+}
+[data-theme="dark"] .header--rolado{
+  background:rgba(28,25,23,.92);
 }
 
 .header__inner{
@@ -674,17 +541,6 @@ small{ font-size:.875rem; line-height:1.6; }
   gap:1.5rem;
 }
 
-.header--topo{ color:#fff; }
-
-.header--rolado{
-  background:rgba(255,255,255,.88);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  box-shadow:0 4px 20px rgba(0,0,0,.06);
-  color:var(--cor-texto);
-}
-[data-theme="dark"] .header--rolado{ background:rgba(28,25,23,.88); }
-
 .header__logo{
   font-family:var(--fonte-titulo);
   font-weight:600;
@@ -695,7 +551,6 @@ small{ font-size:.875rem; line-height:1.6; }
 .header__logo span{ color:var(--cor-primaria); }
 
 .header__nav{ display:none; }
-
 .header__lista{ display:flex; align-items:center; gap:2.25rem; }
 .header__link{
   font-size:.8125rem;
@@ -719,7 +574,7 @@ small{ font-size:.875rem; line-height:1.6; }
   border-radius:var(--raio-pill);
   transition:var(--transicao);
 }
-.header__icone:hover{ background:rgba(183,110,121,.12); }
+.header__icone:hover{ background:rgba(183,110,121,.15); }
 
 .header__badge{
   position:absolute;
@@ -757,7 +612,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .header__hamburguer[aria-expanded="true"] span:nth-child(2){ opacity:0; }
 .header__hamburguer[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
 
-/* Painel de busca */
+/* Busca */
 .busca{
   position:absolute;
   top:5rem; left:0; right:0;
@@ -793,7 +648,6 @@ small{ font-size:.875rem; line-height:1.6; }
 .busca__input::placeholder{ color:var(--cor-texto-suave); }
 .busca__input:focus{ outline:none; border-bottom-color:var(--cor-primaria); }
 
-/* Resultados da busca */
 .busca__resultados{
   max-width:var(--container);
   margin:1.5rem auto 0;
@@ -844,39 +698,74 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 
 /* =========================================================
-   BARRA DE SELOS DE CONFIANÇA
+   DRAWER MOBILE
    ========================================================= */
-.selos{
+.drawer-overlay{
+  position:fixed;
+  inset:0;
+  z-index:110;
+  background:rgba(13,13,13,.5);
+  -webkit-backdrop-filter:blur(3px);
+  backdrop-filter:blur(3px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s ease, visibility .4s ease;
+}
+.drawer-overlay--aberto{ opacity:1; visibility:visible; }
+
+.drawer{
+  position:fixed;
+  top:0; right:0;
+  z-index:120;
+  height:100dvh;
+  width:min(88vw, 400px);
   background:var(--cor-fundo-alt);
-  border-block:1px solid var(--cor-borda);
-  padding-block:1.5rem;
+  padding:1.75rem;
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  transform:translateX(100%);
+  transition:transform .45s cubic-bezier(.25,.46,.45,.94);
+  overflow-y:auto;
 }
-.selos__track{
+.drawer--aberto{ transform:translateX(0); }
+
+.drawer__topo{
   display:flex;
   align-items:center;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  gap:1.5rem 2rem;
-  max-width:var(--container);
-  margin-inline:auto;
-  padding-inline:var(--pad-x);
+  justify-content:space-between;
 }
-.selo{
-  display:flex;
+.drawer__logo{
+  font-family:var(--fonte-titulo);
+  font-size:1.25rem;
+  font-weight:600;
+}
+.drawer__fechar{
+  width:2.5rem; height:2.5rem;
+  display:inline-flex;
   align-items:center;
-  gap:.65rem;
-  font-size:.75rem;
-  font-weight:500;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--cor-texto-suave);
+  justify-content:center;
+  border-radius:50%;
+  font-size:1.5rem;
   transition:var(--transicao);
 }
-.selo:hover{ color:var(--cor-texto); }
-.selo svg{ width:20px; height:20px; color:var(--cor-primaria); flex-shrink:0; }
+.drawer__fechar:hover{ background:var(--cor-fundo); }
+
+.drawer__lista{ display:flex; flex-direction:column; }
+.drawer__link{
+  display:block;
+  font-family:var(--fonte-titulo);
+  font-size:1.625rem;
+  font-weight:500;
+  letter-spacing:-.01em;
+  padding:.6rem 0;
+  border-bottom:1px solid var(--cor-borda);
+  transition:var(--transicao);
+}
+.drawer__link:hover{ color:var(--cor-primaria); padding-left:.5rem; }
 
 /* =========================================================
-   HERO
+   HERO — corrigido
    ========================================================= */
 .hero{
   position:relative;
@@ -887,30 +776,42 @@ small{ font-size:.875rem; line-height:1.6; }
   overflow:hidden;
   background:var(--cor-secundaria);
 }
+[data-theme="dark"] .hero{ background:#0A0907; }
+
 .hero__imagem{
   position:absolute;
   inset:0;
-  width:100%; height:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
-  object-position:center 28%;
+  object-position:center 30%;
 }
+
 .hero__overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(105deg, rgba(13,13,13,.78) 0%, rgba(13,13,13,.48) 45%, rgba(13,13,13,.15) 100%);
+  background:linear-gradient(
+    105deg,
+    rgba(13,13,13,.82) 0%,
+    rgba(13,13,13,.5) 45%,
+    rgba(13,13,13,.2) 100%
+  );
 }
+
 .hero__inner{
   position:relative;
   z-index:2;
   width:100%;
-  padding-block:8rem 7rem;
+  padding-block:clamp(7rem, 15vw, 9rem) clamp(6rem, 12vw, 8rem);
 }
+
 .hero__conteudo{
   max-width:44rem;
   color:#fff;
   text-align:center;
   margin-inline:auto;
 }
+
 .hero__eyebrow{
   font-size:.75rem;
   font-weight:500;
@@ -919,6 +820,7 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-destaque);
   margin-bottom:1.25rem;
 }
+
 .hero__titulo{
   font-size:clamp(2.5rem, 6vw, 5rem);
   font-weight:600;
@@ -927,23 +829,27 @@ small{ font-size:.875rem; line-height:1.6; }
   margin-bottom:1.5rem;
   text-wrap:balance;
 }
+
 .hero__subtitulo{
   font-size:clamp(1rem, 1.4vw, 1.125rem);
   font-weight:300;
   line-height:1.7;
-  color:rgba(255,255,255,.86);
+  color:rgba(255,255,255,.88);
   max-width:34rem;
   margin:0 auto 2.5rem;
 }
+
 .hero__botoes{
   display:flex;
   flex-wrap:wrap;
   gap:.875rem;
   justify-content:center;
 }
+
 .hero__scroll{
   position:absolute;
-  bottom:2rem; left:50%;
+  bottom:2rem;
+  left:50%;
   transform:translateX(-50%);
   z-index:2;
   display:flex;
@@ -973,7 +879,7 @@ small{ font-size:.875rem; line-height:1.6; }
 @keyframes descer{ 0%{ transform:translateY(0); } 100%{ transform:translateY(7rem); } }
 
 /* =========================================================
-   PROVA SOCIAL — barra de números
+   PROVA SOCIAL
    ========================================================= */
 .prova{
   background:var(--cor-fundo-alt);
@@ -1019,7 +925,39 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 
 /* =========================================================
-   MANIFESTO
+   SELOS DE CONFIANÇA
+   ========================================================= */
+.selos{
+  background:var(--cor-fundo-alt);
+  border-block:1px solid var(--cor-borda);
+  padding-block:1.5rem;
+}
+.selos__track{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  gap:1.5rem 2rem;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--pad-x);
+}
+.selo{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--cor-texto-suave);
+  transition:var(--transicao);
+}
+.selo:hover{ color:var(--cor-texto); }
+.selo svg{ width:20px; height:20px; color:var(--cor-primaria); flex-shrink:0; }
+
+/* =========================================================
+   SEÇÕES GERAIS
    ========================================================= */
 .manifesto__grid{
   display:grid;
@@ -1080,9 +1018,6 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-primaria);
 }
 
-/* =========================================================
-   COLEÇÕES
-   ========================================================= */
 .colecoes{ background:var(--cor-fundo-alt); }
 .colecoes__grid{
   display:grid;
@@ -1137,12 +1072,8 @@ small{ font-size:.875rem; line-height:1.6; }
   text-transform:uppercase;
   color:var(--cor-primaria);
   white-space:nowrap;
-  transition:var(--transicao);
 }
 
-/* =========================================================
-   LOOKBOOK
-   ========================================================= */
 .lookbook__grid{ columns:1; column-gap:var(--gap); }
 .lookbook__item{
   position:relative;
@@ -1204,9 +1135,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .lookbook__item:hover .lookbook__mais{ transform:rotate(90deg); }
 
-/* =========================================================
-   MODAL (lookbook + produto)
-   ========================================================= */
 .modal{
   position:fixed;
   inset:0;
@@ -1270,7 +1198,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .modal__fechar:hover{ background:var(--cor-primaria); color:#fff; transform:rotate(90deg); }
 
-/* Modal de produto (mais amplo) */
 .modal-produto .modal__conteudo{
   max-width:1080px;
   grid-template-columns:1fr;
@@ -1296,7 +1223,6 @@ small{ font-size:.875rem; line-height:1.6; }
 .produto-galeria__principal img{
   width:100%; height:100%;
   object-fit:cover;
-  transition:transform .4s ease;
 }
 .produto-galeria__thumbs{
   display:grid;
@@ -1343,7 +1269,6 @@ small{ font-size:.875rem; line-height:1.6; }
   font-weight:300;
   line-height:1.7;
 }
-
 .produto-info__campo{
   display:flex;
   flex-direction:column;
@@ -1406,7 +1331,6 @@ small{ font-size:.875rem; line-height:1.6; }
   text-align:center;
   font-weight:500;
 }
-
 .produto-info__meta{
   margin-top:1.5rem;
   padding-top:1.5rem;
@@ -1424,7 +1348,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .produto-info__meta-item svg{ width:16px; height:16px; color:var(--cor-primaria); flex-shrink:0; }
 
-/* Combina com */
 .combina{
   margin-top:1.5rem;
   padding-top:1.5rem;
@@ -1470,9 +1393,6 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-primaria);
 }
 
-/* =========================================================
-   PRODUTOS EM DESTAQUE
-   ========================================================= */
 .destaques{ background:var(--cor-fundo-alt); }
 .produtos__grid{
   display:grid;
@@ -1518,7 +1438,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .product-card__badge--dourado{ background:var(--cor-destaque); color:var(--cor-preto); }
 .product-card__badge--rose{ background:var(--cor-primaria); color:#fff; }
-.product-card__badge--esgotado{ background:var(--cor-texto-suave); color:#fff; }
 
 .product-card__overlay-cta{
   position:absolute;
@@ -1572,9 +1491,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .product-card__info .btn{ margin-top:auto; }
 
-/* =========================================================
-   SOBRE A LOJA
-   ========================================================= */
 .loja__grid{
   display:grid;
   grid-template-columns:1fr;
@@ -1633,9 +1549,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .loja__mapa:hover iframe{ filter:grayscale(0) contrast(1); }
 
-/* =========================================================
-   DEPOIMENTOS
-   ========================================================= */
 .depoimentos{ background:var(--cor-fundo-alt); }
 .depoimentos__grid{
   display:grid;
@@ -1686,9 +1599,6 @@ small{ font-size:.875rem; line-height:1.6; }
 .depoimento__nome{ font-weight:500; font-size:.9375rem; line-height:1.3; }
 .depoimento__bairro{ font-size:.8125rem; color:var(--cor-texto-suave); font-weight:300; }
 
-/* =========================================================
-   INSTAGRAM
-   ========================================================= */
 .instagram{ background:var(--cor-fundo-alt); }
 .instagram__cabecalho{
   display:flex;
@@ -1736,9 +1646,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .instagram__item:hover .instagram__overlay{ opacity:1; }
 
-/* =========================================================
-   NEWSLETTER
-   ========================================================= */
 .newsletter{
   background:var(--cor-secundaria);
   color:var(--cor-fundo);
@@ -1800,9 +1707,6 @@ small{ font-size:.875rem; line-height:1.6; }
   min-height:1.5rem;
 }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
 .footer{
   background:var(--cor-preto);
   color:rgba(250,248,245,.72);
@@ -1853,8 +1757,6 @@ small{ font-size:.875rem; line-height:1.6; }
   color:#fff;
   transform:translateY(-3px);
 }
-
-/* Selos de confiança no footer */
 .footer__selos{
   display:flex;
   flex-wrap:wrap;
@@ -1873,7 +1775,6 @@ small{ font-size:.875rem; line-height:1.6; }
   gap:.5rem;
 }
 .footer__selo svg{ width:16px; height:16px; color:var(--cor-primaria); }
-
 .footer__base{
   padding-top:2rem;
   display:flex;
@@ -1887,7 +1788,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .footer__base span:last-child{ font-family:var(--fonte-titulo); font-style:italic; }
 
 /* =========================================================
-   CARRINHO (mantido + PIX)
+   CARRINHO — corrigido: corpo com altura e footer compacto
    ========================================================= */
 .cart-overlay{
   position:fixed;
@@ -1914,6 +1815,7 @@ small{ font-size:.875rem; line-height:1.6; }
   transform:translateX(100%);
   transition:transform .45s cubic-bezier(.25,.46,.45,.94);
   box-shadow:-12px 0 40px rgba(0,0,0,.08);
+  overflow:hidden; /* contém os filhos */
 }
 .cart--aberto{ transform:translateX(0); }
 
@@ -1921,7 +1823,7 @@ small{ font-size:.875rem; line-height:1.6; }
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:1.5rem 1.5rem 1.25rem;
+  padding:1.25rem 1.5rem 1rem;
   border-bottom:1px solid var(--cor-borda);
   flex:0 0 auto;
 }
@@ -1942,7 +1844,7 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-texto-suave);
 }
 .cart__fechar{
-  width:2.5rem; height:2.5rem;
+  width:2.25rem; height:2.25rem;
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:50%;
   font-size:1.5rem;
@@ -1950,16 +1852,18 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .cart__fechar:hover{ background:var(--cor-fundo); transform:rotate(90deg); }
 
+/* Corpo: cresce, encolhe, rola internamente. Tem altura mínima garantida */
 .cart__corpo{
   flex:1 1 auto;
-  min-height:0;
+  min-height:180px;
   overflow-y:auto;
   padding:1.25rem 1.5rem;
+  -webkit-overflow-scrolling:touch;
 }
 
 .cart__vazio{
   text-align:center;
-  padding:3rem 1rem;
+  padding:2.5rem 1rem;
   color:var(--cor-texto-suave);
 }
 .cart__vazio svg{ margin:0 auto 1.25rem; opacity:.35; }
@@ -2029,39 +1933,45 @@ small{ font-size:.875rem; line-height:1.6; }
   white-space:nowrap;
 }
 
+/* Footer: altura natural, limitada a 46vh com scroll interno se exceder */
 .cart__footer{
   flex:0 0 auto;
+  max-height:46vh;
+  overflow-y:auto;
   border-top:1px solid var(--cor-borda);
-  padding:1.125rem 1.5rem 1.25rem;
+  box-shadow:0 -12px 30px -18px rgba(0,0,0,.15);
+  padding:1rem 1.5rem 1.25rem;
   background:var(--cor-fundo-alt);
   display:flex;
   flex-direction:column;
-  gap:.625rem;
+  gap:.5rem;
+  -webkit-overflow-scrolling:touch;
 }
+
 .cart__linha{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  font-size:.875rem;
+  font-size:.8125rem;
 }
 .cart__linha span{ color:var(--cor-texto-suave); font-weight:300; }
 .cart__linha strong{ font-weight:500; }
 .cart__linha--total{
   font-family:var(--fonte-titulo);
-  padding-top:.75rem;
+  padding-top:.65rem;
   border-top:1px solid var(--cor-borda);
-  margin-top:.125rem;
+  margin-top:.15rem;
 }
 .cart__linha--total span{
   color:var(--cor-texto);
   font-family:var(--fonte-corpo);
-  font-size:.6875rem;
+  font-size:.625rem;
   letter-spacing:.14em;
   text-transform:uppercase;
   font-weight:500;
 }
 .cart__linha--total strong{
-  font-size:1.375rem;
+  font-size:1.25rem;
   color:var(--cor-primaria);
   font-weight:600;
 }
@@ -2070,24 +1980,24 @@ small{ font-size:.875rem; line-height:1.6; }
   border:0;
   display:flex;
   flex-direction:column;
-  gap:.375rem;
+  gap:.3rem;
   padding:0;
-  margin:.25rem 0 0;
+  margin:.15rem 0 0;
 }
 .cart__entrega legend, .cart__pagamento legend{
-  font-size:.625rem;
+  font-size:.5625rem;
   font-weight:500;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--cor-texto-suave);
-  margin-bottom:.25rem;
+  margin-bottom:.2rem;
   padding:0;
 }
 .cart__opcao{
   display:flex;
   align-items:flex-start;
-  gap:.625rem;
-  padding:.625rem .875rem;
+  gap:.5rem;
+  padding:.45rem .7rem;
   border:1px solid var(--cor-borda);
   border-radius:var(--raio);
   cursor:pointer;
@@ -2095,26 +2005,26 @@ small{ font-size:.875rem; line-height:1.6; }
   background:var(--cor-fundo-alt);
 }
 .cart__opcao:hover{ border-color:var(--cor-primaria); }
-.cart__opcao input{ margin-top:.2rem; accent-color:var(--cor-primaria); flex-shrink:0; }
-.cart__opcao > span{ flex:1; display:flex; flex-direction:column; gap:.1rem; min-width:0; }
-.cart__opcao strong{ font-size:.8125rem; font-weight:500; }
-.cart__opcao small{ font-size:.6875rem; color:var(--cor-texto-suave); font-weight:300; line-height:1.35; }
+.cart__opcao input{ margin-top:.15rem; accent-color:var(--cor-primaria); flex-shrink:0; }
+.cart__opcao > span{ flex:1; display:flex; flex-direction:column; gap:.05rem; min-width:0; }
+.cart__opcao strong{ font-size:.75rem; font-weight:500; line-height:1.2; }
+.cart__opcao small{ font-size:.625rem; color:var(--cor-texto-suave); font-weight:300; line-height:1.25; }
 .cart__opcao em{
   font-style:normal;
-  font-size:.75rem;
+  font-size:.6875rem;
   color:var(--cor-primaria);
   font-weight:500;
   align-self:center;
+  white-space:nowrap;
 }
 .cart__opcao:has(input:checked){
   border-color:var(--cor-primaria);
   background:rgba(183,110,121,.05);
 }
 
-/* Box PIX */
 .pix-box{
   display:none;
-  padding:1rem;
+  padding:.75rem;
   border:1px dashed var(--cor-borda);
   border-radius:var(--raio);
   background:rgba(183,110,121,.03);
@@ -2123,11 +2033,11 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .pix-box--ativa{ display:block; }
 .pix-box__qr{
-  width:120px;
-  height:120px;
-  margin:0 auto .75rem;
+  width:90px;
+  height:90px;
+  margin:0 auto .5rem;
   background:#fff;
-  padding:.5rem;
+  padding:.35rem;
   border-radius:.35rem;
   display:grid;
   grid-template-columns:repeat(8, 1fr);
@@ -2137,31 +2047,31 @@ small{ font-size:.875rem; line-height:1.6; }
 .pix-box__qr span{ background:#000; border-radius:1px; }
 .pix-box__qr span.vazio{ background:#fff; }
 .pix-box__info{
-  font-size:.75rem;
+  font-size:.6875rem;
   color:var(--cor-texto-suave);
-  line-height:1.5;
+  line-height:1.4;
 }
 .pix-box__info strong{ color:var(--cor-primaria); }
 
-.cart__cep{ display:flex; gap:.5rem; margin-top:.25rem; }
+.cart__cep{ display:flex; gap:.4rem; margin-top:.2rem; }
 .cart__cep input{
   flex:1;
   min-width:0;
   border:1px solid var(--cor-borda);
   border-radius:var(--raio-pill);
-  padding:.55rem .875rem;
-  font-size:.8125rem;
+  padding:.45rem .8rem;
+  font-size:.75rem;
   background:var(--cor-fundo-alt);
   color:var(--cor-texto);
   transition:var(--transicao);
 }
 .cart__cep input:focus{ outline:none; border-color:var(--cor-primaria); }
 .cart__cep button{
-  padding:.55rem 1rem;
+  padding:.45rem .85rem;
   background:var(--cor-preto);
   color:#fff;
   border-radius:var(--raio-pill);
-  font-size:.625rem;
+  font-size:.5625rem;
   font-weight:500;
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -2169,9 +2079,9 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .cart__cep button:hover{ background:var(--cor-primaria); }
 .cart__cep-info{
-  font-size:.6875rem;
+  font-size:.625rem;
   color:var(--cor-texto-suave);
-  line-height:1.4;
+  line-height:1.35;
 }
 .cart__cep-info--erro{ color:var(--cor-erro); }
 .cart__cep-info--sucesso{ color:var(--cor-sucesso); }
@@ -2179,10 +2089,10 @@ small{ font-size:.875rem; line-height:1.6; }
 .cart__cliente{
   display:flex;
   flex-direction:column;
-  gap:.25rem;
+  gap:.2rem;
 }
 .cart__cliente label{
-  font-size:.625rem;
+  font-size:.5625rem;
   font-weight:500;
   letter-spacing:.16em;
   text-transform:uppercase;
@@ -2191,25 +2101,30 @@ small{ font-size:.875rem; line-height:1.6; }
 .cart__cliente input{
   border:1px solid var(--cor-borda);
   border-radius:var(--raio-pill);
-  padding:.55rem 1rem;
-  font-size:.8125rem;
+  padding:.5rem .9rem;
+  font-size:.75rem;
   background:var(--cor-fundo-alt);
   color:var(--cor-texto);
   transition:var(--transicao);
 }
 .cart__cliente input:focus{ outline:none; border-color:var(--cor-primaria); }
 
-.cart__footer .btn{ padding:.8rem 1.5rem; font-size:.75rem; }
+.cart__footer .btn{ padding:.75rem 1.25rem; font-size:.6875rem; }
 .cart__aviso{
-  font-size:.6875rem;
+  font-size:.5625rem;
   color:var(--cor-texto-suave);
-  line-height:1.4;
+  line-height:1.35;
   text-align:center;
 }
 
-@media (max-height:620px){
-  .cart__corpo{ min-height:6rem; }
-  .cart__footer{ max-height:70%; overflow-y:auto; }
+/* Telas muito baixas: libera mais espaço para os itens */
+@media (max-height:640px){
+  .cart__corpo{ min-height:140px; }
+  .cart__footer{ max-height:42vh; }
+}
+@media (max-height:520px){
+  .cart__corpo{ min-height:110px; }
+  .cart__footer{ max-height:40vh; }
 }
 
 /* Toast */
@@ -2287,7 +2202,7 @@ small{ font-size:.875rem; line-height:1.6; }
 <a class="pular-link" href="#inicio">Pular para o conteúdo</a>
 
 <!-- =========================================================
-     APRESENTAÇÃO (landing de vendas) — overlay
+     APRESENTAÇÃO — sem planos, só apresentação do modelo
      ========================================================= -->
 <div class="apres" id="apres" role="dialog" aria-modal="true" aria-labelledby="apresTitulo" inert>
   <header class="apres__header">
@@ -2308,7 +2223,8 @@ small{ font-size:.875rem; line-height:1.6; }
       </h1>
       <p class="apres__subtitulo">
         Este site é um <strong>modelo pronto para ser adaptado</strong> ao seu negócio.
-        As seções, cores, tipografia, produtos e integrações abaixo são exemplos — tudo pode ser reconfigurado.
+        Explore o demo completo do lado de trás e veja na prática como funciona: catálogo,
+        carrinho, checkout, tudo funcionando.
       </p>
 
       <div class="apres__ctas">
@@ -2407,83 +2323,6 @@ small{ font-size:.875rem; line-height:1.6; }
     </div>
   </section>
 
-  <section class="apres__secao">
-    <div class="container">
-      <h2 class="apres__secao-titulo">Formatos de contratação</h2>
-      <p class="apres__secao-sub">
-        Três caminhos possíveis. Os valores são referência de mercado para este tipo de projeto —
-        ajustáveis conforme o escopo final.
-      </p>
-
-      <div class="planos">
-
-        <article class="plano">
-          <h3 class="plano__nome">Vitrine Essencial</h3>
-          <p class="plano__para">Para marcas que estão começando e querem presença digital impecável.</p>
-          <div class="plano__preco">
-            <small>a partir de</small>
-            <strong>R$ 2.400</strong>
-          </div>
-          <ul class="plano__lista">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Site de uma página com 6 seções</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Catálogo de até 12 produtos</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Checkout por WhatsApp</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Instagram e Google Maps integrados</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Publicação no domínio próprio</li>
-            <li class="fora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Carrinho com cálculo de frete</li>
-            <li class="fora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Página individual de produto</li>
-          </ul>
-          <a class="btn btn--escuro btn--bloco" href="https://wa.me/5511998765432?text=Quero%20o%20plano%20Vitrine%20Essencial" target="_blank" rel="noopener">Quero este</a>
-        </article>
-
-        <article class="plano plano--destaque">
-          <h3 class="plano__nome">Vitrine Profissional</h3>
-          <p class="plano__para">Para marcas ativas que vendem todos os dias e precisam de operação real.</p>
-          <div class="plano__preco">
-            <small>a partir de</small>
-            <strong>R$ 4.800</strong>
-          </div>
-          <ul class="plano__lista">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Tudo do Essencial</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Catálogo de até 40 produtos</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Carrinho completo com frete por CEP</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Página individual de produto</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Pagamento por PIX no checkout</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Busca funcional e filtros</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Modo escuro e SEO otimizado</li>
-          </ul>
-          <a class="btn btn--primary btn--bloco" href="https://wa.me/5511998765432?text=Quero%20o%20plano%20Vitrine%20Profissional" target="_blank" rel="noopener">Quero este</a>
-        </article>
-
-        <article class="plano">
-          <h3 class="plano__nome">Vitrine Premium</h3>
-          <p class="plano__para">Para marcas em crescimento que querem se diferenciar de verdade.</p>
-          <div class="plano__preco">
-            <small>a partir de</small>
-            <strong>R$ 9.500</strong>
-          </div>
-          <ul class="plano__lista">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Tudo do Profissional</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Catálogo ilimitado + variações (cor, tamanho)</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Integração com ERP ou planilha</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Área de cliente com histórico</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Blog integrado para SEO</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Painel administrativo simples</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Suporte estendido por 90 dias</li>
-          </ul>
-          <a class="btn btn--escuro btn--bloco" href="https://wa.me/5511998765432?text=Quero%20o%20plano%20Vitrine%20Premium" target="_blank" rel="noopener">Quero este</a>
-        </article>
-
-      </div>
-
-      <p style="text-align:center;margin-top:2.5rem;font-size:.875rem;color:var(--cor-texto-suave);max-width:38rem;margin-inline:auto;line-height:1.7;">
-        <strong style="color:var(--cor-texto);">Importante:</strong> este site é um <em>modelo de referência</em>.
-        Nada aqui é fixo. Cores, seções, planos e integrações são pontos de partida —
-        o projeto final é desenhado em conjunto, conforme suas prioridades e orçamento.
-      </p>
-    </div>
-  </section>
-
   <footer style="padding-block:2.5rem;border-top:1px solid var(--cor-borda);text-align:center;">
     <div class="container">
       <p style="font-size:.8125rem;color:var(--cor-texto-suave);margin-bottom:1rem;">
@@ -2497,13 +2336,13 @@ small{ font-size:.875rem; line-height:1.6; }
 </div>
 
 <!-- =========================================================
-     TOGGLE FLUTUANTE (abre apresentação) + DARK MODE
+     TOGGLE APRESENTAÇÃO + DARK MODE
      ========================================================= -->
-<button class="toggle-apres" id="toggleApres" aria-label="Ver planos de contratação deste modelo">
+<button class="toggle-apres" id="toggleApres" aria-label="Ver detalhes deste modelo">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
     <path d="M9 11H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4M15 11h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4M9 3h6v8H9zM9 21h6v-8H9z"/>
   </svg>
-  <span>Ver planos</span>
+  <span>Sobre este modelo</span>
 </button>
 
 <button class="toggle-tema" id="toggleTema" aria-label="Alternar modo escuro" style="top:auto;bottom:1.25rem;left:1.25rem;right:auto;">
@@ -2545,7 +2384,6 @@ small{ font-size:.875rem; line-height:1.6; }
     </div>
   </div>
 
-  <!-- Busca -->
   <div class="busca" id="painelBusca">
     <form class="busca__form" role="search" onsubmit="return false;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -2562,17 +2400,17 @@ small{ font-size:.875rem; line-height:1.6; }
      ========================================================= -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <aside class="drawer" id="drawer" aria-label="Menu lateral" inert>
-  <div class="drawer__topo" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-    <span class="drawer__logo" style="font-family:var(--fonte-titulo);font-size:1.25rem;font-weight:600;">Aura</span>
-    <button class="drawer__fechar" id="btnFecharMenu" aria-label="Fechar menu" style="width:2.5rem;height:2.5rem;border-radius:50%;font-size:1.5rem;">×</button>
+  <div class="drawer__topo">
+    <span class="drawer__logo">Aura</span>
+    <button class="drawer__fechar" id="btnFecharMenu" aria-label="Fechar menu">×</button>
   </div>
-  <nav aria-label="Navegação mobile" style="margin-top:2rem;">
-    <ul style="display:flex;flex-direction:column;">
-      <li><a class="drawer__link" href="#inicio" style="display:block;font-family:var(--fonte-titulo);font-size:1.625rem;font-weight:500;padding:.6rem 0;border-bottom:1px solid var(--cor-borda);">Início</a></li>
-      <li><a class="drawer__link" href="#colecoes" style="display:block;font-family:var(--fonte-titulo);font-size:1.625rem;font-weight:500;padding:.6rem 0;border-bottom:1px solid var(--cor-borda);">Coleções</a></li>
-      <li><a class="drawer__link" href="#lookbook" style="display:block;font-family:var(--fonte-titulo);font-size:1.625rem;font-weight:500;padding:.6rem 0;border-bottom:1px solid var(--cor-borda);">Lookbook</a></li>
-      <li><a class="drawer__link" href="#destaques" style="display:block;font-family:var(--fonte-titulo);font-size:1.625rem;font-weight:500;padding:.6rem 0;border-bottom:1px solid var(--cor-borda);">Destaques</a></li>
-      <li><a class="drawer__link" href="#loja" style="display:block;font-family:var(--fonte-titulo);font-size:1.625rem;font-weight:500;padding:.6rem 0;border-bottom:1px solid var(--cor-borda);">Loja</a></li>
+  <nav aria-label="Navegação mobile">
+    <ul class="drawer__lista">
+      <li><a class="drawer__link" href="#inicio">Início</a></li>
+      <li><a class="drawer__link" href="#colecoes">Coleções</a></li>
+      <li><a class="drawer__link" href="#lookbook">Lookbook</a></li>
+      <li><a class="drawer__link" href="#destaques">Destaques</a></li>
+      <li><a class="drawer__link" href="#loja">Loja</a></li>
     </ul>
   </nav>
   <a href="#loja" class="btn btn--primary btn--bloco" style="margin-top:2rem;">Visite a loja</a>
@@ -2581,7 +2419,7 @@ small{ font-size:.875rem; line-height:1.6; }
 <main>
 
 <!-- =========================================================
-     HERO
+     HERO — corrigido
      ========================================================= -->
 <section class="hero" id="inicio">
   <img class="hero__imagem"
@@ -2591,10 +2429,6 @@ small{ font-size:.875rem; line-height:1.6; }
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="hero__inner container">
     <div class="hero__conteudo">
-      <span class="badge-ajustavel" style="background:rgba(201,162,39,.15);border-color:rgba(201,162,39,.4);color:var(--cor-destaque);">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
-        Conteúdo ajustável
-      </span>
       <p class="hero__eyebrow">Nova coleção · Verão 2026</p>
       <h1 class="hero__titulo">Elegância que nasce no bairro</h1>
       <p class="hero__subtitulo">
@@ -2642,7 +2476,7 @@ small{ font-size:.875rem; line-height:1.6; }
 </div>
 
 <!-- =========================================================
-     PROVA SOCIAL (barra de números)
+     PROVA SOCIAL
      ========================================================= -->
 <section class="prova" aria-label="Números da marca">
   <div class="prova__grid">
@@ -2701,13 +2535,13 @@ small{ font-size:.875rem; line-height:1.6; }
       </span>
       <p class="eyebrow">Categorias</p>
       <h2 class="section__titulo">Coleções</h2>
-      <p class="section__descricao">Quatro famílias de peças que conversam entre si. Monte looks inteiros sem esforço — ou leve só aquela que resolve o seu domingo.</p>
+      <p class="section__descricao">Quatro famílias de peças que conversam entre si. Monte looks inteiros sem esforço.</p>
     </header>
 
     <div class="colecoes__grid">
       <a class="colecao-card reveal" href="#destaques">
         <div class="colecao-card__media">
-          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" alt="Vestido midi fluido em tom terroso" loading="lazy" width="800" height="1067">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" alt="Vestido midi fluido" loading="lazy" width="800" height="1067">
           <span class="colecao-card__overlay" aria-hidden="true"></span>
         </div>
         <div class="colecao-card__corpo">
@@ -2717,7 +2551,7 @@ small{ font-size:.875rem; line-height:1.6; }
       </a>
       <a class="colecao-card reveal" href="#destaques">
         <div class="colecao-card__media">
-          <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=800&q=80" alt="Blazer de alfaiataria claro" loading="lazy" width="800" height="1067">
+          <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=800&q=80" alt="Blazer de alfaiataria" loading="lazy" width="800" height="1067">
           <span class="colecao-card__overlay" aria-hidden="true"></span>
         </div>
         <div class="colecao-card__corpo">
@@ -2727,7 +2561,7 @@ small{ font-size:.875rem; line-height:1.6; }
       </a>
       <a class="colecao-card reveal" href="#destaques">
         <div class="colecao-card__media">
-          <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Look casual com calça ampla" loading="lazy" width="800" height="1067">
+          <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Look casual" loading="lazy" width="800" height="1067">
           <span class="colecao-card__overlay" aria-hidden="true"></span>
         </div>
         <div class="colecao-card__corpo">
@@ -2737,7 +2571,7 @@ small{ font-size:.875rem; line-height:1.6; }
       </a>
       <a class="colecao-card reveal" href="#destaques">
         <div class="colecao-card__media">
-          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Acessórios femininos em superfície clara" loading="lazy" width="800" height="1067">
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Acessórios" loading="lazy" width="800" height="1067">
           <span class="colecao-card__overlay" aria-hidden="true"></span>
         </div>
         <div class="colecao-card__corpo">
@@ -2808,7 +2642,7 @@ small{ font-size:.875rem; line-height:1.6; }
 </section>
 
 <!-- =========================================================
-     PRODUTOS EM DESTAQUE (clicáveis — abre modal de produto)
+     PRODUTOS EM DESTAQUE
      ========================================================= -->
 <section class="section destaques" id="destaques">
   <div class="container">
@@ -2822,9 +2656,7 @@ small{ font-size:.875rem; line-height:1.6; }
       <p class="section__descricao">Clique em qualquer produto para ver detalhes, tamanhos e descrição completa. Adicione à sacola e finalize pelo WhatsApp.</p>
     </header>
 
-    <div class="produtos__grid" id="produtosGrid">
-      <!-- Preenchido por JS a partir do catálogo -->
-    </div>
+    <div class="produtos__grid" id="produtosGrid"></div>
   </div>
 </section>
 
@@ -2834,12 +2666,12 @@ small{ font-size:.875rem; line-height:1.6; }
 <section class="section loja" id="loja">
   <div class="container loja__grid">
     <figure class="loja__figura reveal">
-      <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80" alt="Fachada da loja Aura na Vila Madalena" loading="lazy" width="1000" height="750">
+      <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80" alt="Fachada da loja Aura" loading="lazy" width="1000" height="750">
     </figure>
     <div class="loja__info reveal">
       <p class="eyebrow">A loja</p>
       <h2>Um pedacinho do bairro no seu guarda-roupa</h2>
-      <p>Nossa porta fica aberta de segunda a sábado. Venha provar sem pressa, tomar um café e conversar sobre o que combina com você. A gente ajusta a barra na hora, guarda a sua peça preferida e avisa quando chegar novidade no seu tamanho.</p>
+      <p>Nossa porta fica aberta de segunda a sábado. Venha provar sem pressa, tomar um café e conversar sobre o que combina com você.</p>
 
       <div class="loja__dados">
         <div class="loja__dado">
@@ -2852,7 +2684,7 @@ small{ font-size:.875rem; line-height:1.6; }
         </div>
         <div class="loja__dado">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 3.8 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.8a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
-          <span><strong>WhatsApp</strong>(11) 99876-5432<br>Resposta em até 1 hora</span>
+          <span><strong>WhatsApp</strong>(11) 99876-5432</span>
         </div>
         <div class="loja__dado">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
@@ -2877,49 +2709,32 @@ small{ font-size:.875rem; line-height:1.6; }
     <header class="section__cabecalho reveal">
       <p class="eyebrow">Depoimentos</p>
       <h2 class="section__titulo">Quem veste, ama</h2>
-      <p class="section__descricao">Mais de 3.200 clientes atendidas desde 2018. Estas são algumas das vizinhas que voltam sempre — e trazem amigas.</p>
+      <p class="section__descricao">Mais de 3.200 clientes atendidas desde 2018. Estas são algumas das vizinhas que voltam sempre.</p>
     </header>
 
     <div class="depoimentos__grid">
       <article class="depoimento-card reveal">
-        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
+        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <p class="depoimento__texto">“Entrei para comprar um presente e saí com três peças minhas. A Marina entende de corpo real como ninguém — me ajudou a escolher um vestido que eu nunca teria provado sozinha.”</p>
         <div class="depoimento__autora">
           <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Juliana Prado" loading="lazy" width="200" height="200">
-          <div>
-            <p class="depoimento__nome">Juliana Prado, 38</p>
-            <p class="depoimento__bairro">Vila Madalena</p>
-          </div>
+          <div><p class="depoimento__nome">Juliana Prado, 38</p><p class="depoimento__bairro">Vila Madalena</p></div>
         </div>
       </article>
-
       <article class="depoimento-card reveal">
-        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="depoimento__texto">“Compro aqui há dois anos. As peças duram, não desbotam e continuam caindo bem depois de dezenas de lavagens. É o oposto do fast-fashion que eu usava antes.”</p>
+        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="depoimento__texto">“Compro aqui há dois anos. As peças duram, não desbotam e continuam caindo bem depois de dezenas de lavagens. É o oposto do fast-fashion.”</p>
         <div class="depoimento__autora">
           <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80" alt="Cláudia Nakamura" loading="lazy" width="200" height="200">
-          <div>
-            <p class="depoimento__nome">Cláudia Nakamura, 52</p>
-            <p class="depoimento__bairro">Pinheiros</p>
-          </div>
+          <div><p class="depoimento__nome">Cláudia Nakamura, 52</p><p class="depoimento__bairro">Pinheiros</p></div>
         </div>
       </article>
-
       <article class="depoimento-card reveal">
-        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
+        <div class="depoimento__estrelas" role="img" aria-label="5 de 5 estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <p class="depoimento__texto">“Mandei mensagem no WhatsApp às dez da noite e fui atendida na hora. Separei duas peças, passei na loja no dia seguinte e ainda ajustaram a barra da calça na mesma tarde.”</p>
         <div class="depoimento__autora">
           <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Renata Alves" loading="lazy" width="200" height="200">
-          <div>
-            <p class="depoimento__nome">Renata Alves, 29</p>
-            <p class="depoimento__bairro">Sumaré</p>
-          </div>
+          <div><p class="depoimento__nome">Renata Alves, 29</p><p class="depoimento__bairro">Sumaré</p></div>
         </div>
       </article>
     </div>
@@ -2984,7 +2799,7 @@ small{ font-size:.875rem; line-height:1.6; }
       <button class="btn btn--primary" type="submit">Quero receber</button>
     </form>
 
-    <p class="newsletter__microcopy">Ao assinar, você concorda em receber nossos e-mails. Cancele quando quiser, com um clique. Seus dados ficam só com a gente.</p>
+    <p class="newsletter__microcopy">Ao assinar, você concorda em receber nossos e-mails. Cancele quando quiser, com um clique.</p>
     <p class="newsletter__feedback" id="feedbackNewsletter" role="status" aria-live="polite"></p>
   </div>
 </section>
@@ -3047,10 +2862,8 @@ small{ font-size:.875rem; line-height:1.6; }
 </footer>
 
 <!-- =========================================================
-     MODAIS
+     MODAL LOOKBOOK
      ========================================================= -->
-
-<!-- Modal lookbook (mantido) -->
 <div class="modal" id="modalLook" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" inert>
   <div class="modal__backdrop" data-fechar-modal></div>
   <div class="modal__conteudo">
@@ -3065,7 +2878,9 @@ small{ font-size:.875rem; line-height:1.6; }
   </div>
 </div>
 
-<!-- Modal de produto (novo) -->
+<!-- =========================================================
+     MODAL PRODUTO
+     ========================================================= -->
 <div class="modal modal-produto" id="modalProduto" role="dialog" aria-modal="true" aria-labelledby="produtoTitulo" inert>
   <div class="modal__backdrop" data-fechar-produto></div>
   <div class="modal__conteudo">
@@ -3171,7 +2986,7 @@ small{ font-size:.875rem; line-height:1.6; }
         <input type="radio" name="pagamento" value="whatsapp" checked>
         <span>
           <strong>Combinar pelo WhatsApp</strong>
-          <small>Cartão, dinheiro ou transferência na entrega</small>
+          <small>Cartão, dinheiro ou transferência</small>
         </span>
       </label>
       <label class="cart__opcao">
@@ -3220,7 +3035,7 @@ small{ font-size:.875rem; line-height:1.6; }
   'use strict';
 
   /* =======================================================
-     CATÁLOGO DE PRODUTOS (fácil de editar)
+     CATÁLOGO DE PRODUTOS
      ======================================================= */
   const PRODUTOS = [
     {
@@ -3231,7 +3046,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: 'Novo',
       badgeCor: '',
       descricaoCurta: 'Linho puro, forro de algodão. Tam. P ao GG.',
-      descricaoLonga: 'Vestido midi confeccionado em linho puro com forro de algodão. Modelagem fluida que respeita o corpo, com alças ajustáveis e bolsos laterais. Uma peça que vai do café da manhã ao jantar sem esforço.',
+      descricaoLonga: 'Vestido midi confeccionado em linho puro com forro de algodão. Modelagem fluida que respeita o corpo, com alças ajustáveis e bolsos laterais.',
       imagens: [
         'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=900&q=80',
@@ -3249,7 +3064,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: 'Últimas peças',
       badgeCor: 'product-card__badge--rose',
       descricaoCurta: 'Alfaiataria com elastano. Ombro suave.',
-      descricaoLonga: 'Blazer de alfaiataria com elastano em tom areia. Modelagem estruturada com ombro suave, forro completo e dois botões. Peça-chave para compor looks do trabalho ao happy hour.',
+      descricaoLonga: 'Blazer de alfaiataria com elastano em tom areia. Modelagem estruturada com ombro suave, forro completo e dois botões.',
       imagens: [
         'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80',
@@ -3267,7 +3082,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: '',
       badgeCor: '',
       descricaoCurta: 'Seda com toque frio. Soltinha no corpo.',
-      descricaoLonga: 'Camisa de seda com toque frio e caimento leve. Botões de madrepérola e gola clássica. Sozinha ou sobreposta, é a peça que resolve qualquer look.',
+      descricaoLonga: 'Camisa de seda com toque frio e caimento leve. Botões de madrepérola e gola clássica.',
       imagens: [
         'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=900&q=80',
@@ -3285,7 +3100,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: 'Novo',
       badgeCor: 'product-card__badge--dourado',
       descricaoCurta: 'Crepê encorpado, cintura alta, bolso funcional.',
-      descricaoLonga: 'Calça pantalona em crepê encorpado, cor barro. Cintura alta, pregas frontais e bolso funcional. Alonga a silhueta e combina com tudo.',
+      descricaoLonga: 'Calça pantalona em crepê encorpado, cor barro. Cintura alta, pregas frontais e bolso funcional.',
       imagens: [
         'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80',
@@ -3303,7 +3118,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: 'Best-seller',
       badgeCor: 'product-card__badge--rose',
       descricaoCurta: 'Cetim fluido, alças finas, caimento impecável.',
-      descricaoLonga: 'Vestido longo em cetim fluido tom rosé. Alças finas, costas abertas e caimento impecável. Perfeito para jantares e ocasiões especiais.',
+      descricaoLonga: 'Vestido longo em cetim fluido tom rosé. Alças finas, costas abertas e caimento impecável.',
       imagens: [
         'https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1595777216528-071e0127ccbf?auto=format&fit=crop&w=900&q=80',
@@ -3321,7 +3136,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: '',
       badgeCor: '',
       descricaoCurta: 'Linho cru com cinto de couro.',
-      descricaoLonga: 'Macacão em linho cru com cinto de couro inclusivo. Alças ajustáveis, pernas amplas e bolsos. Do ateliê ao bar da esquina.',
+      descricaoLonga: 'Macacão em linho cru com cinto de couro inclusivo. Alças ajustáveis, pernas amplas e bolsos.',
       imagens: [
         'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80',
@@ -3339,7 +3154,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: '',
       badgeCor: '',
       descricaoCurta: 'Tricô leve, manga longa, gola redonda.',
-      descricaoLonga: 'Blusa de tricô leve em tom areia, manga longa e gola redonda. Perfeita para compor camadas em dias mais frescos.',
+      descricaoLonga: 'Blusa de tricô leve em tom areia, manga longa e gola redonda.',
       imagens: [
         'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80',
@@ -3357,7 +3172,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: '',
       badgeCor: '',
       descricaoCurta: 'Plissado fino, cintura elástica, movimento fluido.',
-      descricaoLonga: 'Saia midi plissada com cintura elástica forrada. Movimento fluido e caimento elegante. Vai do dia ao night com a troca de um sapato.',
+      descricaoLonga: 'Saia midi plissada com cintura elástica forrada. Movimento fluido e caimento elegante.',
       imagens: [
         'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=80',
@@ -3375,7 +3190,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: 'Novo',
       badgeCor: '',
       descricaoCurta: 'Couro legítimo, alça ajustável, tamanho médio.',
-      descricaoLonga: 'Bolsa em couro legítimo caramelo. Alça ajustável, fecho de ímã e bolso interno. Espaçosa o suficiente para o dia a dia, elegante para a noite.',
+      descricaoLonga: 'Bolsa em couro legítimo caramelo. Alça ajustável, fecho de ímã e bolso interno.',
       imagens: [
         'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80',
@@ -3393,7 +3208,7 @@ small{ font-size:.875rem; line-height:1.6; }
       badge: '',
       badgeCor: '',
       descricaoCurta: 'Banho de ouro 18k, leve, formato folha.',
-      descricaoLonga: 'Brinco com banho de ouro 18k em formato de folha. Leve para usar o dia inteiro. Fecho tarraxa com detalhe martelado.',
+      descricaoLonga: 'Brinco com banho de ouro 18k em formato de folha. Leve para usar o dia inteiro.',
       imagens: [
         'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80',
         'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80',
@@ -3440,6 +3255,10 @@ small{ font-size:.875rem; line-height:1.6; }
       cor: 'Tartaruga'
     }
   ];
+
+  function fmtPreco(n) {
+    return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
 
   /* =======================================================
      HEADER
@@ -3517,38 +3336,23 @@ small{ font-size:.875rem; line-height:1.6; }
   function abrirMenu() {
     ultimoFoco = document.activeElement;
     drawer.inert = false;
-    drawer.style.transform = 'translateX(0)';
-    drawer.style.position = 'fixed';
-    drawer.style.top = '0';
-    drawer.style.right = '0';
-    drawer.style.height = '100dvh';
-    drawer.style.width = 'min(88vw, 400px)';
-    drawer.style.background = 'var(--cor-fundo-alt)';
-    drawer.style.padding = '1.75rem';
-    drawer.style.zIndex = '120';
-    drawer.style.overflowY = 'auto';
-    drawerOverlay.style.opacity = '1';
-    drawerOverlay.style.visibility = 'visible';
+    drawer.classList.add('drawer--aberto');
+    drawerOverlay.classList.add('drawer-overlay--aberto');
     btnMenu.setAttribute('aria-expanded', 'true');
     document.body.classList.add('travar-scroll');
     setTimeout(function () { btnFecharMenu.focus(); }, 200);
   }
   function fecharMenuFn() {
-    drawer.style.transform = 'translateX(100%)';
-    drawerOverlay.style.opacity = '0';
-    drawerOverlay.style.visibility = 'hidden';
+    drawer.classList.remove('drawer--aberto');
+    drawerOverlay.classList.remove('drawer-overlay--aberto');
     btnMenu.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('travar-scroll');
     drawer.inert = true;
     if (ultimoFoco) ultimoFoco.focus();
   }
 
-  drawer.style.transform = 'translateX(100%)';
-  drawer.style.transition = 'transform .45s cubic-bezier(.25,.46,.45,.94)';
-  drawerOverlay.style.transition = 'opacity .4s ease, visibility .4s ease';
-
   btnMenu.addEventListener('click', function () {
-    const aberto = drawer.style.transform === 'translateX(0px)' || drawer.style.transform === 'translateX(0)';
+    const aberto = drawer.classList.contains('drawer--aberto');
     aberto ? fecharMenuFn() : abrirMenu();
   });
   btnFecharMenu.addEventListener('click', fecharMenuFn);
@@ -3558,7 +3362,7 @@ small{ font-size:.875rem; line-height:1.6; }
   });
 
   /* =======================================================
-     BUSCA FUNCIONAL
+     BUSCA
      ======================================================= */
   const btnBusca = document.getElementById('btnBusca');
   const painelBusca = document.getElementById('painelBusca');
@@ -3626,12 +3430,8 @@ small{ font-size:.875rem; line-height:1.6; }
     renderizarBusca(e.target.value);
   });
 
-  function fmtPreco(n) {
-    return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }
-
   /* =======================================================
-     RENDERIZAR GRADE DE PRODUTOS
+     RENDERIZAR PRODUTOS
      ======================================================= */
   const produtosGrid = document.getElementById('produtosGrid');
 
@@ -3660,19 +3460,16 @@ small{ font-size:.875rem; line-height:1.6; }
       '</article>';
     }).join('');
 
-    // Reaplica eventos após renderizar
     aplicarEventosProdutos();
   }
 
   function aplicarEventosProdutos() {
-    // Clique na imagem abre modal de produto
     produtosGrid.querySelectorAll('[data-produto-id]').forEach(function (el) {
       el.addEventListener('click', function () {
         abrirProduto(el.dataset.produtoId);
       });
     });
 
-    // Botão adicionar à sacola (evento capturado pelo Cart via delegação na criação)
     produtosGrid.querySelectorAll('[data-add-cart]').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -3687,7 +3484,6 @@ small{ font-size:.875rem; line-height:1.6; }
       });
     });
 
-    // Reaplica reveal nos novos cards
     if ('IntersectionObserver' in window) {
       const obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
@@ -3702,7 +3498,7 @@ small{ font-size:.875rem; line-height:1.6; }
   }
 
   /* =======================================================
-     MODAL DE PRODUTO
+     MODAL PRODUTO
      ======================================================= */
   const modalProduto = document.getElementById('modalProduto');
   const produtoImagemPrincipal = document.getElementById('produtoImagemPrincipal');
@@ -3761,7 +3557,6 @@ small{ font-size:.875rem; line-height:1.6; }
       });
     });
 
-    // "Combina com" — 3 produtos da mesma categoria ou aleatórios
     const relacionados = PRODUTOS.filter(function (x) {
       return x.id !== p.id && x.categoria === p.categoria;
     }).slice(0, 3);
@@ -3799,23 +3594,17 @@ small{ font-size:.875rem; line-height:1.6; }
   });
 
   produtoQtdMenos.addEventListener('click', function () {
-    if (qtdAtual > 1) {
-      qtdAtual--;
-      produtoQtd.textContent = qtdAtual;
-    }
+    if (qtdAtual > 1) { qtdAtual--; produtoQtd.textContent = qtdAtual; }
   });
   produtoQtdMais.addEventListener('click', function () {
-    if (qtdAtual < 10) {
-      qtdAtual++;
-      produtoQtd.textContent = qtdAtual;
-    }
+    if (qtdAtual < 10) { qtdAtual++; produtoQtd.textContent = qtdAtual; }
   });
   produtoAdicionar.addEventListener('click', function () {
     if (!produtoAtual) return;
     for (let i = 0; i < qtdAtual; i++) {
       if (window.CartAdd) {
         window.CartAdd({
-          id: produtoAtual.id,
+          id: produtoAtual.id + '-' + tamanhoAtual,
           nome: produtoAtual.nome + ' · ' + tamanhoAtual,
           preco: produtoAtual.preco,
           imagem: produtoAtual.imagens[0]
@@ -3826,7 +3615,7 @@ small{ font-size:.875rem; line-height:1.6; }
   });
 
   /* =======================================================
-     MODAL DO LOOKBOOK
+     MODAL LOOKBOOK
      ======================================================= */
   const modal = document.getElementById('modalLook');
   const modalImagem = document.getElementById('modalImagem');
@@ -3902,7 +3691,7 @@ small{ font-size:.875rem; line-height:1.6; }
   });
 
   /* =======================================================
-     CARRINHO (com PIX)
+     CARRINHO
      ======================================================= */
   const Cart = (function () {
     const STORAGE_KEY = 'aura_cart_v2';
@@ -3965,7 +3754,6 @@ small{ font-size:.875rem; line-height:1.6; }
       return calcularFrete(cepInformado);
     }
 
-    // Gera QR mockado (padrão visual apenas)
     function gerarPixQr() {
       const padrao = [
         [1,1,1,0,1,0,1,1],
@@ -4105,7 +3893,6 @@ small{ font-size:.875rem; line-height:1.6; }
       toastTimer = setTimeout(function () { el.classList.remove('toast--visivel'); }, 3000);
     }
 
-    // Eventos CEP
     if ($cepInput) {
       $cepInput.addEventListener('input', function (e) { e.target.value = mascaraCep(e.target.value); });
       $cepInput.addEventListener('keydown', function (e) {
@@ -4133,7 +3920,6 @@ small{ font-size:.875rem; line-height:1.6; }
       });
     }
 
-    // Radios de entrega
     document.querySelectorAll('input[name="entrega"]').forEach(function (r) {
       r.addEventListener('change', function () {
         modoEntrega = r.value;
@@ -4148,7 +3934,6 @@ small{ font-size:.875rem; line-height:1.6; }
       });
     });
 
-    // Radios de pagamento
     document.querySelectorAll('input[name="pagamento"]').forEach(function (r) {
       r.addEventListener('change', function () {
         modoPagamento = r.value;
@@ -4161,7 +3946,6 @@ small{ font-size:.875rem; line-height:1.6; }
       });
     });
 
-    // Finalizar
     $finalizar.addEventListener('click', function () {
       if (itens.length === 0) return;
       const sub = subtotal();
@@ -4206,18 +3990,17 @@ small{ font-size:.875rem; line-height:1.6; }
     return { adicionar: adicionar, abrir: abrir, fechar: fechar };
   })();
 
-  // Expoõe adicionar globalmente
   window.CartAdd = Cart.adicionar;
 
   /* =======================================================
-     ESC fecha tudo
+     ESC fecha overlays
      ======================================================= */
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     if (document.getElementById('cartDrawer').classList.contains('cart--aberto')) { Cart.fechar(); return; }
     if (modalProduto.classList.contains('modal--aberto')) { fecharProduto(); return; }
     if (modal.classList.contains('modal--aberto')) { fecharModalLook(); return; }
-    if (drawer.style.transform === 'translateX(0px)' || drawer.style.transform === 'translateX(0)') { fecharMenuFn(); return; }
+    if (drawer.classList.contains('drawer--aberto')) { fecharMenuFn(); return; }
     if (painelBusca.classList.contains('busca--aberta')) { alternarBusca(false); btnBusca.focus(); return; }
     if (apres.classList.contains('apres--aberta')) { fecharApresFn(); return; }
   });
