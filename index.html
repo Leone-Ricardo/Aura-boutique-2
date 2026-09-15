@@ -251,42 +251,12 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 
 /* =========================================================
-   TOGGLE APRESENTAÇÃO + DARK MODE
+   TOGGLE DARK MODE
    ========================================================= */
-.toggle-apres{
-  position:fixed;
-  top:1.25rem;
-  right:1.25rem;
-  z-index:250;
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.75rem 1.25rem;
-  background:var(--cor-preto);
-  color:#fff;
-  border-radius:var(--raio-pill);
-  font-size:.75rem;
-  font-weight:500;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  box-shadow:0 12px 30px rgba(0,0,0,.2);
-  transition:var(--transicao);
-}
-.toggle-apres:hover{
-  background:var(--cor-primaria);
-  transform:translateY(-2px);
-  box-shadow:0 16px 40px rgba(183,110,121,.35);
-}
-.toggle-apres svg{ width:16px; height:16px; }
-@media (max-width:640px){
-  .toggle-apres{ top:auto; bottom:1.25rem; right:1.25rem; padding:.875rem 1rem; }
-  .toggle-apres span{ display:none; }
-}
-
 .toggle-tema{
   position:fixed;
-  top:1.25rem;
-  right:1.25rem;
+  bottom:1.25rem;
+  left:1.25rem;
   z-index:250;
   width:2.75rem;
   height:2.75rem;
@@ -303,202 +273,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .toggle-tema:hover{ transform:rotate(15deg) scale(1.05); color:var(--cor-primaria); }
 
 /* =========================================================
-   APRESENTAÇÃO
-   ========================================================= */
-.apres{
-  position:fixed;
-  inset:0;
-  z-index:300;
-  background:var(--cor-fundo);
-  overflow-y:auto;
-  opacity:0;
-  visibility:hidden;
-  transform:scale(.98);
-  transition:opacity .4s ease, transform .4s ease, visibility .4s ease;
-}
-.apres--aberta{ opacity:1; visibility:visible; transform:scale(1); }
-
-.apres__header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(250,248,245,.92);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--cor-borda);
-  padding-block:1.25rem;
-}
-[data-theme="dark"] .apres__header{ background:rgba(21,18,16,.92); }
-
-.apres__header .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1.5rem;
-}
-
-.apres__marca{
-  font-family:var(--fonte-titulo);
-  font-size:1.25rem;
-  font-weight:600;
-  letter-spacing:-.01em;
-}
-.apres__marca span{ color:var(--cor-primaria); }
-
-.apres__fechar{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.6rem 1rem;
-  border:1px solid var(--cor-borda);
-  border-radius:var(--raio-pill);
-  font-size:.75rem;
-  font-weight:500;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:var(--transicao);
-}
-.apres__fechar:hover{ background:var(--cor-primaria); border-color:var(--cor-primaria); color:#fff; }
-
-.apres__hero{
-  padding-block:clamp(3.5rem, 8vw, 6rem);
-  text-align:center;
-}
-
-.apres__selo{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.5rem 1rem;
-  background:rgba(201,162,39,.12);
-  border:1px solid rgba(201,162,39,.35);
-  border-radius:var(--raio-pill);
-  font-size:.6875rem;
-  font-weight:600;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--cor-destaque);
-  margin-bottom:2rem;
-}
-.apres__selo::before{
-  content:"";
-  width:6px; height:6px;
-  border-radius:50%;
-  background:var(--cor-destaque);
-  animation:pulso 2s ease-in-out infinite;
-}
-@keyframes pulso{
-  0%,100%{ opacity:1; transform:scale(1); }
-  50%{ opacity:.5; transform:scale(1.3); }
-}
-
-.apres__titulo{
-  font-size:clamp(2.25rem, 5.5vw, 4.25rem);
-  font-weight:600;
-  line-height:1.05;
-  letter-spacing:-.025em;
-  max-width:52rem;
-  margin:0 auto 1.5rem;
-  text-wrap:balance;
-}
-.apres__titulo em{ font-style:italic; color:var(--cor-primaria); font-weight:500; }
-
-.apres__subtitulo{
-  font-size:clamp(1.0625rem, 1.6vw, 1.25rem);
-  font-weight:300;
-  line-height:1.65;
-  color:var(--cor-texto-suave);
-  max-width:42rem;
-  margin:0 auto 2.5rem;
-}
-
-.apres__ctas{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.875rem;
-  justify-content:center;
-  margin-bottom:3rem;
-}
-
-.apres__minis{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1.75rem 2.5rem;
-  justify-content:center;
-  padding-top:2rem;
-  border-top:1px solid var(--cor-borda);
-  max-width:52rem;
-  margin-inline:auto;
-}
-.apres__mini{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  font-size:.8125rem;
-  color:var(--cor-texto-suave);
-}
-.apres__mini svg{ width:16px; height:16px; color:var(--cor-primaria); flex-shrink:0; }
-
-.apres__secao{ padding-block:clamp(3rem, 7vw, 5rem); }
-.apres__secao-titulo{
-  text-align:center;
-  font-size:clamp(1.75rem, 3vw, 2.25rem);
-  margin-bottom:.75rem;
-}
-.apres__secao-sub{
-  text-align:center;
-  color:var(--cor-texto-suave);
-  max-width:38rem;
-  margin:0 auto 3rem;
-  font-weight:300;
-}
-
-.ajustavel-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-  gap:1rem;
-  max-width:64rem;
-  margin-inline:auto;
-}
-
-.ajustavel-card{
-  padding:1.5rem 1.25rem;
-  background:var(--cor-fundo-alt);
-  border:1px solid var(--cor-borda);
-  border-radius:var(--raio);
-  text-align:center;
-  transition:var(--transicao);
-}
-.ajustavel-card:hover{
-  border-color:var(--cor-primaria);
-  transform:translateY(-3px);
-  box-shadow:var(--sombra-hover);
-}
-.ajustavel-card__icone{
-  width:2.5rem;
-  height:2.5rem;
-  margin:0 auto .875rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(183,110,121,.1);
-  color:var(--cor-primaria);
-  border-radius:50%;
-}
-.ajustavel-card__titulo{
-  font-family:var(--fonte-titulo);
-  font-size:1rem;
-  font-weight:600;
-  margin-bottom:.35rem;
-}
-.ajustavel-card__desc{
-  font-size:.8125rem;
-  color:var(--cor-texto-suave);
-  line-height:1.5;
-}
-
-/* =========================================================
-   1. HEADER — corrigido: gradiente visível no topo
+   HEADER
    ========================================================= */
 .header{
   position:fixed;
@@ -507,7 +282,6 @@ small{ font-size:.875rem; line-height:1.6; }
   transition:background .4s ease, box-shadow .4s ease, color .4s ease, backdrop-filter .4s ease;
 }
 
-/* Header no topo — gradiente escuro garante legibilidade */
 .header--topo{
   color:#fff;
   background:linear-gradient(
@@ -518,7 +292,6 @@ small{ font-size:.875rem; line-height:1.6; }
   );
 }
 
-/* Header após rolar — fundo sólido com blur */
 .header--rolado{
   background:rgba(255,255,255,.92);
   -webkit-backdrop-filter:blur(14px);
@@ -765,7 +538,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .drawer__link:hover{ color:var(--cor-primaria); padding-left:.5rem; }
 
 /* =========================================================
-   HERO — corrigido
+   HERO
    ========================================================= */
 .hero{
   position:relative;
@@ -879,6 +652,38 @@ small{ font-size:.875rem; line-height:1.6; }
 @keyframes descer{ 0%{ transform:translateY(0); } 100%{ transform:translateY(7rem); } }
 
 /* =========================================================
+   SELOS DE CONFIANÇA
+   ========================================================= */
+.selos{
+  background:var(--cor-fundo-alt);
+  border-block:1px solid var(--cor-borda);
+  padding-block:1.5rem;
+}
+.selos__track{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  gap:1.5rem 2rem;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--pad-x);
+}
+.selo{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--cor-texto-suave);
+  transition:var(--transicao);
+}
+.selo:hover{ color:var(--cor-texto); }
+.selo svg{ width:20px; height:20px; color:var(--cor-primaria); flex-shrink:0; }
+
+/* =========================================================
    PROVA SOCIAL
    ========================================================= */
 .prova{
@@ -925,39 +730,7 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 
 /* =========================================================
-   SELOS DE CONFIANÇA
-   ========================================================= */
-.selos{
-  background:var(--cor-fundo-alt);
-  border-block:1px solid var(--cor-borda);
-  padding-block:1.5rem;
-}
-.selos__track{
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  gap:1.5rem 2rem;
-  max-width:var(--container);
-  margin-inline:auto;
-  padding-inline:var(--pad-x);
-}
-.selo{
-  display:flex;
-  align-items:center;
-  gap:.65rem;
-  font-size:.75rem;
-  font-weight:500;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--cor-texto-suave);
-  transition:var(--transicao);
-}
-.selo:hover{ color:var(--cor-texto); }
-.selo svg{ width:20px; height:20px; color:var(--cor-primaria); flex-shrink:0; }
-
-/* =========================================================
-   SEÇÕES GERAIS
+   MANIFESTO
    ========================================================= */
 .manifesto__grid{
   display:grid;
@@ -1018,6 +791,9 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-primaria);
 }
 
+/* =========================================================
+   COLEÇÕES
+   ========================================================= */
 .colecoes{ background:var(--cor-fundo-alt); }
 .colecoes__grid{
   display:grid;
@@ -1074,6 +850,9 @@ small{ font-size:.875rem; line-height:1.6; }
   white-space:nowrap;
 }
 
+/* =========================================================
+   LOOKBOOK
+   ========================================================= */
 .lookbook__grid{ columns:1; column-gap:var(--gap); }
 .lookbook__item{
   position:relative;
@@ -1135,6 +914,9 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .lookbook__item:hover .lookbook__mais{ transform:rotate(90deg); }
 
+/* =========================================================
+   MODAIS
+   ========================================================= */
 .modal{
   position:fixed;
   inset:0;
@@ -1393,6 +1175,9 @@ small{ font-size:.875rem; line-height:1.6; }
   color:var(--cor-primaria);
 }
 
+/* =========================================================
+   PRODUTOS
+   ========================================================= */
 .destaques{ background:var(--cor-fundo-alt); }
 .produtos__grid{
   display:grid;
@@ -1491,6 +1276,9 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .product-card__info .btn{ margin-top:auto; }
 
+/* =========================================================
+   LOJA
+   ========================================================= */
 .loja__grid{
   display:grid;
   grid-template-columns:1fr;
@@ -1549,6 +1337,9 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .loja__mapa:hover iframe{ filter:grayscale(0) contrast(1); }
 
+/* =========================================================
+   DEPOIMENTOS
+   ========================================================= */
 .depoimentos{ background:var(--cor-fundo-alt); }
 .depoimentos__grid{
   display:grid;
@@ -1599,6 +1390,9 @@ small{ font-size:.875rem; line-height:1.6; }
 .depoimento__nome{ font-weight:500; font-size:.9375rem; line-height:1.3; }
 .depoimento__bairro{ font-size:.8125rem; color:var(--cor-texto-suave); font-weight:300; }
 
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
 .instagram{ background:var(--cor-fundo-alt); }
 .instagram__cabecalho{
   display:flex;
@@ -1646,6 +1440,9 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .instagram__item:hover .instagram__overlay{ opacity:1; }
 
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
 .newsletter{
   background:var(--cor-secundaria);
   color:var(--cor-fundo);
@@ -1707,6 +1504,9 @@ small{ font-size:.875rem; line-height:1.6; }
   min-height:1.5rem;
 }
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .footer{
   background:var(--cor-preto);
   color:rgba(250,248,245,.72);
@@ -1788,7 +1588,7 @@ small{ font-size:.875rem; line-height:1.6; }
 .footer__base span:last-child{ font-family:var(--fonte-titulo); font-style:italic; }
 
 /* =========================================================
-   CARRINHO — corrigido: corpo com altura e footer compacto
+   CARRINHO
    ========================================================= */
 .cart-overlay{
   position:fixed;
@@ -1815,7 +1615,7 @@ small{ font-size:.875rem; line-height:1.6; }
   transform:translateX(100%);
   transition:transform .45s cubic-bezier(.25,.46,.45,.94);
   box-shadow:-12px 0 40px rgba(0,0,0,.08);
-  overflow:hidden; /* contém os filhos */
+  overflow:hidden;
 }
 .cart--aberto{ transform:translateX(0); }
 
@@ -1852,7 +1652,6 @@ small{ font-size:.875rem; line-height:1.6; }
 }
 .cart__fechar:hover{ background:var(--cor-fundo); transform:rotate(90deg); }
 
-/* Corpo: cresce, encolhe, rola internamente. Tem altura mínima garantida */
 .cart__corpo{
   flex:1 1 auto;
   min-height:180px;
@@ -1933,7 +1732,6 @@ small{ font-size:.875rem; line-height:1.6; }
   white-space:nowrap;
 }
 
-/* Footer: altura natural, limitada a 46vh com scroll interno se exceder */
 .cart__footer{
   flex:0 0 auto;
   max-height:46vh;
@@ -2117,7 +1915,6 @@ small{ font-size:.875rem; line-height:1.6; }
   text-align:center;
 }
 
-/* Telas muito baixas: libera mais espaço para os itens */
 @media (max-height:640px){
   .cart__corpo{ min-height:140px; }
   .cart__footer{ max-height:42vh; }
@@ -2202,150 +1999,9 @@ small{ font-size:.875rem; line-height:1.6; }
 <a class="pular-link" href="#inicio">Pular para o conteúdo</a>
 
 <!-- =========================================================
-     APRESENTAÇÃO — sem planos, só apresentação do modelo
+     TOGGLE DARK MODE
      ========================================================= -->
-<div class="apres" id="apres" role="dialog" aria-modal="true" aria-labelledby="apresTitulo" inert>
-  <header class="apres__header">
-    <div class="container">
-      <p class="apres__marca">Modelo <span>Referência</span></p>
-      <button type="button" class="apres__fechar" id="fecharApres">
-        Voltar ao site
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <section class="apres__hero">
-    <div class="container">
-      <span class="apres__selo">Modelo demonstrativo · 100% ajustável</span>
-      <h1 class="apres__titulo" id="apresTitulo">
-        Sua marca local merece uma <em>vitrine digital</em> à altura
-      </h1>
-      <p class="apres__subtitulo">
-        Este site é um <strong>modelo pronto para ser adaptado</strong> ao seu negócio.
-        Explore o demo completo do lado de trás e veja na prática como funciona: catálogo,
-        carrinho, checkout, tudo funcionando.
-      </p>
-
-      <div class="apres__ctas">
-        <button type="button" class="btn btn--primary" id="verDemo">
-          Ver o demo funcionando
-        </button>
-        <a class="btn btn--escuro" href="https://wa.me/5511998765432?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20vitrine%20digital" target="_blank" rel="noopener">
-          Falar sobre meu projeto
-        </a>
-      </div>
-
-      <div class="apres__minis">
-        <span class="apres__mini">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Pronto para usar em 7 dias
-        </span>
-        <span class="apres__mini">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Sem mensalidade obrigatória
-        </span>
-        <span class="apres__mini">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Você aprova cada detalhe
-        </span>
-        <span class="apres__mini">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Suporte por 30 dias
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <section class="apres__secao" style="background:var(--cor-fundo-alt);border-block:1px solid var(--cor-borda);">
-    <div class="container">
-      <h2 class="apres__secao-titulo">O que é ajustável neste modelo</h2>
-      <p class="apres__secao-sub">Você não precisa "aceitar tudo". Cada elemento abaixo é uma escolha do seu projeto.</p>
-
-      <div class="ajustavel-grid">
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Cores e marca</h3>
-          <p class="ajustavel-card__desc">Paleta, logo tipográfico e identidade visual.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Tipografia</h3>
-          <p class="ajustavel-card__desc">Serifada, sans, ou par tipográfico próprio.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Seções</h3>
-          <p class="ajustavel-card__desc">Adicionar, remover ou reordenar blocos.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Catálogo</h3>
-          <p class="ajustavel-card__desc">Quantidade de produtos, categorias e filtros.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19 19 0 0 1 3 4.8 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L9 11a15 15 0 0 0 5.7 5.7l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Checkout</h3>
-          <p class="ajustavel-card__desc">WhatsApp, PIX, cartão ou Mercado Pago.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Integrações</h3>
-          <p class="ajustavel-card__desc">Instagram, Google Maps, analytics, ERP.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Copy e conteúdo</h3>
-          <p class="ajustavel-card__desc">Textos reescritos para o seu tom de voz.</p>
-        </div>
-        <div class="ajustavel-card">
-          <div class="ajustavel-card__icone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-          </div>
-          <h3 class="ajustavel-card__titulo">Prazo e escopo</h3>
-          <p class="ajustavel-card__desc">Entregas parciais, tudo alinhado antes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer style="padding-block:2.5rem;border-top:1px solid var(--cor-borda);text-align:center;">
-    <div class="container">
-      <p style="font-size:.8125rem;color:var(--cor-texto-suave);margin-bottom:1rem;">
-        Dúvidas? Prefere conversar antes de decidir?
-      </p>
-      <a class="btn btn--primary" href="https://wa.me/5511998765432?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20meu%20projeto%20digital" target="_blank" rel="noopener">
-        Falar no WhatsApp
-      </a>
-    </div>
-  </footer>
-</div>
-
-<!-- =========================================================
-     TOGGLE APRESENTAÇÃO + DARK MODE
-     ========================================================= -->
-<button class="toggle-apres" id="toggleApres" aria-label="Ver detalhes deste modelo">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-    <path d="M9 11H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4M15 11h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4M9 3h6v8H9zM9 21h6v-8H9z"/>
-  </svg>
-  <span>Sobre este modelo</span>
-</button>
-
-<button class="toggle-tema" id="toggleTema" aria-label="Alternar modo escuro" style="top:auto;bottom:1.25rem;left:1.25rem;right:auto;">
+<button class="toggle-tema" id="toggleTema" aria-label="Alternar modo escuro">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" id="iconeTema">
     <circle cx="12" cy="12" r="4"/>
     <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
@@ -2419,7 +2075,7 @@ small{ font-size:.875rem; line-height:1.6; }
 <main>
 
 <!-- =========================================================
-     HERO — corrigido
+     HERO
      ========================================================= -->
 <section class="hero" id="inicio">
   <img class="hero__imagem"
@@ -3295,36 +2951,6 @@ small{ font-size:.875rem; line-height:1.6; }
   });
 
   /* =======================================================
-     APRESENTAÇÃO
-     ======================================================= */
-  const apres = document.getElementById('apres');
-  const toggleApres = document.getElementById('toggleApres');
-  const fecharApres = document.getElementById('fecharApres');
-  const verDemo = document.getElementById('verDemo');
-
-  function abrirApres() {
-    apres.inert = false;
-    apres.classList.add('apres--aberta');
-    document.body.classList.add('travar-scroll');
-    setTimeout(function () { fecharApres.focus(); }, 260);
-  }
-  function fecharApresFn() {
-    apres.classList.remove('apres--aberta');
-    apres.inert = true;
-    document.body.classList.remove('travar-scroll');
-    toggleApres.focus();
-  }
-
-  toggleApres.addEventListener('click', abrirApres);
-  fecharApres.addEventListener('click', fecharApresFn);
-  verDemo.addEventListener('click', function () {
-    fecharApresFn();
-    setTimeout(function () {
-      document.getElementById('destaques').scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-  });
-
-  /* =======================================================
      DRAWER MOBILE
      ======================================================= */
   const drawer = document.getElementById('drawer');
@@ -4002,7 +3628,6 @@ small{ font-size:.875rem; line-height:1.6; }
     if (modal.classList.contains('modal--aberto')) { fecharModalLook(); return; }
     if (drawer.classList.contains('drawer--aberto')) { fecharMenuFn(); return; }
     if (painelBusca.classList.contains('busca--aberta')) { alternarBusca(false); btnBusca.focus(); return; }
-    if (apres.classList.contains('apres--aberta')) { fecharApresFn(); return; }
   });
 
   /* =======================================================
