@@ -2309,7 +2309,7 @@ small{ font-size:.875rem; line-height:1.6; }
       </span>
       <p class="eyebrow">Chegou agora</p>
       <h2 class="section__titulo">Destaques da semana</h2>
-      <p class="section__descricao">Clique em qualquer produto para ver detalhes, tamanhos e descrição completa. Adicione à sacola e finalize pelo WhatsApp.</p>
+      <p class="section__descricao">Clique em qualquer produto para escolher tamanho, quantidade e ver a descrição completa. Adicione à sacola e finalize pelo WhatsApp.</p>
     </header>
 
     <div class="produtos__grid" id="produtosGrid"></div>
@@ -3075,12 +3075,8 @@ small{ font-size:.875rem; line-height:1.6; }
           '<h3 class="product-card__name">' + p.nome + '</h3>' +
           '<p class="product-card__descricao">' + p.descricaoCurta + '</p>' +
           '<p class="product-card__price">' + fmtPreco(p.preco) + '</p>' +
-          '<button type="button" class="btn btn--primary btn--bloco" data-add-cart ' +
-            'data-produto-id="' + p.id + '" ' +
-            'data-produto-nome="' + p.nome + '" ' +
-            'data-produto-preco="' + p.preco + '" ' +
-            'data-produto-imagem="' + p.imagens[0] + '">' +
-            'Adicionar à sacola' +
+          '<button type="button" class="btn btn--primary btn--bloco" data-produto-id="' + p.id + '">' +
+            'Escolher tamanho' +
           '</button>' +
         '</div>' +
       '</article>';
@@ -3090,23 +3086,10 @@ small{ font-size:.875rem; line-height:1.6; }
   }
 
   function aplicarEventosProdutos() {
+    // Um único handler: qualquer clique que tenha data-produto-id abre o modal
     produtosGrid.querySelectorAll('[data-produto-id]').forEach(function (el) {
       el.addEventListener('click', function () {
         abrirProduto(el.dataset.produtoId);
-      });
-    });
-
-    produtosGrid.querySelectorAll('[data-add-cart]').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        if (window.CartAdd) {
-          window.CartAdd({
-            id: btn.dataset.produtoId,
-            nome: btn.dataset.produtoNome,
-            preco: parseFloat(btn.dataset.produtoPreco),
-            imagem: btn.dataset.produtoImagem
-          });
-        }
       });
     });
 
